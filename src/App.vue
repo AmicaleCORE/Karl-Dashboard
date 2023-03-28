@@ -18,4 +18,5 @@ export default defineComponent({
   width: 100%
   min-height: 100vh
   font-family: book.$font
+  background-color: book.$bg
 </style>

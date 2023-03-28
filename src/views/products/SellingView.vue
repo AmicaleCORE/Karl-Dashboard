@@ -1,5 +1,5 @@
 <template>
-  <main class="home">
+  <main class="selling">
   </main>
 </template>
 
@@ -7,10 +7,10 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'HomeView'
+  name: 'SellingView'
 })
 </script>
 
-<style lang="sass" scoped>
+<style scoped>
 
 </style>
