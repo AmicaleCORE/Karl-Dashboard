@@ -46,7 +46,7 @@ const router = createRouter({
 
 router.beforeEach((to: RouteLocationNormalized, from: RouteLocationNormalized, next: NavigationGuardNext) => {
   const title: unknown = to.meta.title
-  const dynamicTitle: string | string[] = to.params.pageTitle
+  const dynamicTitle: string | string[] = to.params.title
 
   if (title) document.title = `Karl | ${title}`
   if (dynamicTitle) document.title = `Karl | ${dynamicTitle}`
