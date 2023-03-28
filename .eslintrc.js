@@ -12,6 +12,7 @@ module.exports = {
     ecmaVersion: 2020
   },
   rules: {
+    'no-explicit-any': 'off',
     'no-trailing-spaces': 'off',
     'no-multiple-empty-lines': 'off',
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
