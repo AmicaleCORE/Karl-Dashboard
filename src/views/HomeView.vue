@@ -10,7 +10,7 @@ import { title } from '@/assets/scripts/configuration'
 export default defineComponent({
   name: 'HomeView',
   created () {
-    document.title = title('Bienvenue')
+    document.title = title(this.$route.name)
   }
 })
 </script>

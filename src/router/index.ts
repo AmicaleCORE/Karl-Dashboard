@@ -7,12 +7,15 @@ const routes: Array<RouteRecordRaw> = [
     children: [
       {
         path: '',
+        name: 'Bienvenue',
         component: () => import('@/views/HomeView.vue')
       }
     ]
   },
   {
     path: '/auth/',
+    // redirect: '/auth/login',
+    name: 'Authentification',
     component: () => import('@/layouts/AuthenticationLayout.vue'),
     children: [
     ]
