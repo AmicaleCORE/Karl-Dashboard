@@ -28,14 +28,6 @@ const routes: Array<RouteRecordRaw> = [
         }
       }
     ]
-  },
-  {
-    path: '/auth/',
-    // redirect: '/auth/login',
-    name: 'Authentification',
-    component: () => import('@/layouts/AuthenticationLayout.vue'),
-    children: [
-    ]
   }
 ]
 
