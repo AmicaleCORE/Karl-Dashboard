@@ -1,15 +1,16 @@
 <template>
-  <RouterView />
+  <main class="selling">
+  </main>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'AuthenticationLayout'
+  name: 'SellingView'
 })
 </script>
 
-<style lang="sass" scoped>
+<style scoped>
 
 </style>
