@@ -30,7 +30,7 @@
 
             <div class="page__header__account__profile__content">
               <p class="page__header__account__profile__content--name">{{ username }}</p>
-              <p class="page__header__account__profile__content--role">Administrateur</p>
+              <p class="page__header__account__profile__content--role">{{ role }}</p>
             </div>
           </RouterLink>
           <div class="page__header__account__actions">
@@ -43,7 +43,10 @@
           </div>
         </aside>
       </header>
-      <RouterView />
+
+      <section class="page__content">
+        <RouterView />
+      </section>
     </aside>
   </div>
 </template>
@@ -57,7 +60,8 @@ export default defineComponent({
   components: { IconRenderer },
   data: () => ({
     notifications: 1,
-    username: 'Jane DOE'
+    username: 'Jane DOE',
+    role: 'Administrateur'
   })
 })
 </script>
@@ -250,5 +254,7 @@ export default defineComponent({
         &:hover
           background-color: book.$txt-special
 
-
+  &__content
+    width: 100%
+    padding: 1.5em 3em
 </style>
