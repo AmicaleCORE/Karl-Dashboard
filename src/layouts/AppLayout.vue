@@ -12,9 +12,9 @@
           <RouterLink to="/sell" active-class="active" class="sidebar__content__link">Vendre</RouterLink>
         </section>
 
-        <!-- TODO: Theme switcher
-        <section class="sidebar__content__theme"></section>
-        -->
+        <section class="sidebar__content__extra">
+          <p class="sidebar__content__extra--hour" v-if="hour">{{ hour }}</p>
+        </section>
       </main>
     </nav>
 
@@ -44,7 +44,7 @@
         </aside>
       </header>
 
-      <section class="page__content">
+      <section class="page__content" data-scroll>
         <RouterView />
       </section>
     </aside>
@@ -55,14 +55,26 @@
 import { defineComponent } from 'vue'
 import IconRenderer from '@/components/framework/misc/IconRenderer.vue'
 
+const date: Date = new Date()
 export default defineComponent({
   name: 'AppLayout',
   components: { IconRenderer },
   data: () => ({
     notifications: 1,
     username: 'Jane DOE',
-    role: 'Administrateur'
-  })
+    role: 'Administrateur',
+    hour: `${(date.getHours() < 10 ? '0' : '') + date.getHours()}:${(date.getMinutes() < 10 ? '0' : '') + date.getMinutes()}`
+  }),
+  created () {
+    setInterval(() => {
+      const now: Date = new Date()
+      const hours = now.getHours()
+      const minutes = now.getMinutes()
+      const seconds = now.getSeconds()
+
+      this.hour = `${(hours < 10 ? '0' : '') + hours}:${(minutes < 10 ? '0' : '') + minutes}`
+    }, 500)
+  }
 })
 </script>
 
@@ -107,6 +119,17 @@ export default defineComponent({
       gap: .5em
       display: flex
       flex-direction: column
+
+    &__extra
+      gap: 1em
+      display: flex
+      align-items: center
+      flex-direction: column
+
+      &--hour
+        opacity: .5
+        font-size: 1.5em
+        line-height: 100%
 
     &__link
       gap: 1em
