@@ -9,7 +9,7 @@
       <main class="sidebar__content">
         <section class="sidebar__content__links">
           <RouterLink to="/" exact-active-class="active" class="sidebar__content__link">Tableau de bord</RouterLink>
-          <RouterLink to="/sell" active-class="active" class="sidebar__content__link">Vendre</RouterLink>
+          <RouterLink to="/sell" active-class="active" class="sidebar__content__link">Magasin</RouterLink>
         </section>
 
         <section class="sidebar__content__extra">

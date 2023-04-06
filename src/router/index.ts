@@ -21,10 +21,10 @@ const routes: Array<RouteRecordRaw> = [
       },
       {
         path: '/sell',
-        name: 'Vendre',
+        name: 'Magasin',
         component: () => import('@/views/products/SellingView.vue'),
         meta: {
-          title: 'Vendre'
+          title: 'Magasin'
         }
       }
     ]
