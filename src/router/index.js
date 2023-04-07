@@ -1,12 +1,9 @@
 import {
   createRouter,
-  createWebHistory,
-  NavigationGuardNext,
-  RouteLocationNormalized,
-  RouteRecordRaw
+  createWebHistory
 } from 'vue-router'
 
-const routes: Array<RouteRecordRaw> = [
+const routes = [
   {
     path: '/',
     component: () => import('@/layouts/AppLayout.vue'),
@@ -36,9 +33,9 @@ const router = createRouter({
   routes
 })
 
-router.beforeEach((to: RouteLocationNormalized, from: RouteLocationNormalized, next: NavigationGuardNext) => {
-  const title: unknown = to.meta.title
-  const dynamicTitle: string | string[] = to.params.title
+router.beforeEach((to, from, next) => {
+  const title = to.meta.title
+  const dynamicTitle = to.params.title
 
   if (title) document.title = `Karl | ${title}`
   if (dynamicTitle) document.title = `Karl | ${dynamicTitle}`

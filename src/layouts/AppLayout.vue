@@ -51,11 +51,11 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue'
 import IconRenderer from '@/components/framework/misc/IconRenderer.vue'
 
-const date: Date = new Date()
+const date = new Date()
 export default defineComponent({
   name: 'AppLayout',
   components: { IconRenderer },
@@ -67,10 +67,9 @@ export default defineComponent({
   }),
   created () {
     setInterval(() => {
-      const now: Date = new Date()
+      const now = new Date()
       const hours = now.getHours()
       const minutes = now.getMinutes()
-      const seconds = now.getSeconds()
 
       this.hour = `${(hours < 10 ? '0' : '') + hours}:${(minutes < 10 ? '0' : '') + minutes}`
     }, 500)

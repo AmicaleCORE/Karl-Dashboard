@@ -1,4 +1,4 @@
-export const accounts = [
+export default [
   {
     name: 'Caisse',
     amount: 708.99

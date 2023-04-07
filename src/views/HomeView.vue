@@ -75,10 +75,10 @@
   </main>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue'
-import { accounts } from '@/assets/scripts/accounts'
-import { Chart } from 'chart.js/auto'
+import accounts from '@/assets/scripts/accounts'
+// import { Chart } from 'chart.js/auto'
 
 export default defineComponent({
   name: 'HomeView',

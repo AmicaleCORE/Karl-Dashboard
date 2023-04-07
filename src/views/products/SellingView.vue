@@ -20,28 +20,24 @@
     </section>
 
     <section class="selling__command">
-      <p :key="product" v-for="product in store.cart">{{ product.name }}</p>
+      <p :key="product" v-for="product in $store.state.cart">{{ product.name }}</p>
     </section>
   </main>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue'
-import { products } from '@/assets/scripts/products'
+import products from '@/assets/scripts/products'
 
 export default defineComponent({
   name: 'SellingView',
   data: () => ({
-    products,
-    store: {
-      cart: []
-    }
+    products
   }),
   methods: {
-    click (id: number) {
+    click (id) {
       if (!this.products[id] || this.products[id].stock <= 0) return
-      // Add to cart
-      this.store.cart.push(this.products[id] as never)
+      this.$store.state.cart.push(this.products[id])
     }
   }
 })
