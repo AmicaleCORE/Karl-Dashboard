@@ -1,11 +1,13 @@
 export default [
   {
     name: 'Caisse',
-    amount: 708.99
+    amount: 708.99,
+    toCome: 21.75
   },
   {
     name: 'SumUP',
-    amount: 362.59
+    amount: 362.59,
+    toCome: 56.72
   },
   {
     name: 'Livret Bleu association',

@@ -17,7 +17,10 @@
       <div class="home__panel__content accounts__content">
         <div class="accounts__line" :key="a" v-for="a in accounts">
           <h3 class="accounts__line--name">{{ a.name }}</h3>
-          <p class="accounts__line--amount">{{ a.amount.toFixed(2).toString().replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, ' ') }} €</p>
+          <p class="accounts__line--amount">
+            {{ a.toCome < 0 ? '-' : '' }}{{ Math.abs(a.amount).toFixed(2).toString().replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, ' ') }} €
+            <span class="accounts__line--amount__details" v-if="a.toCome">({{ a.toCome >= 0 ? '+' : '-' }} {{ Math.abs(a.toCome).toFixed(2).toString().replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, ' ') }} €)</span>
+          </p>
         </div>
       </div>
     </section>
@@ -138,9 +141,42 @@ export default defineComponent({
           font-weight: 500
 
         &--amount
+          display: flex
           flex: 0 0 auto
           font-size: 1.5em
           font-weight: 500
+          align-items: flex-end
+          flex-direction: column
+
+          &__details
+            font-size: .6em
+            font-weight: 400
+            position: relative
+            color: book.$txt-accent
+
+            &::after
+              left: 0
+              top: 100%
+              opacity: 0
+              z-index: 998
+              font-size: 1em
+              color: book.$bg
+              position: absolute
+              white-space: nowrap
+              padding: .6em 1.2em
+              border-radius: .75em
+              pointer-events: none
+              transition-duration: 250ms
+              background-color: book.$txt
+              content: 'Unprocessed sales'
+              transform: translateY(-.5em)
+              transition-timing-function: ease-in-out
+              transition-property: opacity, transform
+
+            &:hover
+              &::after
+                opacity: 1
+                transform: none
 
     &.stock-alerts
       grid-column: span 2
