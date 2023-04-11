@@ -19,14 +19,13 @@
           <p class="selling__command__cart--no-content" v-if="Object.keys($store.state.cart).length === 0">Aucun produit...</p>
           <div class="selling__command__cart__item" :key="amount" v-for="(amount, key) in $store.state.cart" v-else>
             <div class="selling__command__cart__item--left">
-              <div class="selling__command__cart__item__actions">
-                <button class="selling__command__cart__item__actions--button" @click="incrementQuantity(key)"><svg width="7" height="7" viewBox="0 0 7 7" fill="none"><path d="M6.54508 3.92001H3.94108V6.46801H3.05908V3.92001H0.455078V3.09401H3.05908V0.532013H3.94108V3.09401H6.54508V3.92001Z" fill="currentColor"/></svg></button>
-                <button class="selling__command__cart__item__actions--button" @click="decrementQuantity(key)"><svg width="5" height="1" viewBox="0 0 5 1" fill="none"><path d="M0.666016 0.0660095H4.33402V0.93401H0.666016V0.0660095Z" fill="currentColor"/></svg></button>
-              </div>
-
               <div class="selling__command__cart__item__credentials">
                 <p class="selling__command__cart__item__credentials--name">{{ products[key].name }}</p>
-                <span class="selling__command__cart__item__credentials--amount">{{ amount }}</span>
+                <div class="selling__command__cart__item__credentials--actions">
+                  <button class="selling__command__cart__item__actions--button" @click="decrementQuantity(key)"><svg width="5" height="1" viewBox="0 0 5 1" fill="none"><path d="M0.666016 0.0660095H4.33402V0.93401H0.666016V0.0660095Z" fill="currentColor"/></svg></button>
+                  <span class="selling__command__cart__item__credentials--amount">{{ amount }}</span>
+                  <button class="selling__command__cart__item__actions--button" @click="incrementQuantity(key)"><svg width="7" height="7" viewBox="0 0 7 7" fill="none"><path d="M6.54508 3.92001H3.94108V6.46801H3.05908V3.92001H0.455078V3.09401H3.05908V0.532013H3.94108V3.09401H6.54508V3.92001Z" fill="currentColor"/></svg></button>
+                </div>
               </div>
             </div>
 
@@ -188,7 +187,7 @@ export default defineComponent({
           flex-direction: column
 
           &--button
-            width: 1.25em
+            width: 1.5em
             display: grid
             border-radius: .5em
             aspect-ratio: 1 / 1
@@ -196,6 +195,7 @@ export default defineComponent({
             background-color: book.$bg-accent
 
         &__credentials
+          gap: .5em
           display: flex
           flex-direction: column
           justify-content: space-between
@@ -206,6 +206,11 @@ export default defineComponent({
           &--amount
             opacity: .6
             line-height: 100%
+
+          &--actions
+            display: flex
+            grid-gap: .5em
+            align-items: center
 
         &__resume
           gap: .5em
