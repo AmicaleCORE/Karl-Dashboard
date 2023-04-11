@@ -152,7 +152,7 @@ export default defineComponent({
             font-size: .6em
             font-weight: 400
             position: relative
-            color: book.$txt-disabled
+            color: book.$txt-accent
 
             &::after
               left: 0
