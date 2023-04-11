@@ -149,9 +149,34 @@ export default defineComponent({
           flex-direction: column
 
           &__details
-            opacity: .4
-            font-weight: 400
             font-size: .6em
+            font-weight: 400
+            position: relative
+            color: book.$txt-disabled
+
+            &::after
+              left: 0
+              top: 100%
+              opacity: 0
+              z-index: 998
+              font-size: 1em
+              color: book.$bg
+              position: absolute
+              white-space: nowrap
+              padding: .6em 1.2em
+              border-radius: .75em
+              pointer-events: none
+              transition-duration: 250ms
+              background-color: book.$txt
+              content: 'Unprocessed sales'
+              transform: translateY(-.5em)
+              transition-timing-function: ease-in-out
+              transition-property: opacity, transform
+
+            &:hover
+              &::after
+                opacity: 1
+                transform: none
 
     &.stock-alerts
       grid-column: span 2
