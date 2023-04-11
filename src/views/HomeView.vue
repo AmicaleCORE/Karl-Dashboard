@@ -17,7 +17,10 @@
       <div class="home__panel__content accounts__content">
         <div class="accounts__line" :key="a" v-for="a in accounts">
           <h3 class="accounts__line--name">{{ a.name }}</h3>
-          <p class="accounts__line--amount">{{ a.amount.toFixed(2).toString().replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, ' ') }} €</p>
+          <p class="accounts__line--amount">
+            {{ a.amount.toFixed(2).toString().replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, ' ') }} €
+            <span class="accounts__line--amount__details" v-if="a.toCome">({{ a.toCome >= 0 ? '+' : '-' }} {{ a.toCome.toFixed(2).toString().replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, ' ') }} €)</span>
+          </p>
         </div>
       </div>
     </section>
@@ -138,9 +141,17 @@ export default defineComponent({
           font-weight: 500
 
         &--amount
+          display: flex
           flex: 0 0 auto
           font-size: 1.5em
           font-weight: 500
+          align-items: flex-end
+          flex-direction: column
+
+          &__details
+            opacity: .4
+            font-weight: 400
+            font-size: .6em
 
     &.stock-alerts
       grid-column: span 2
