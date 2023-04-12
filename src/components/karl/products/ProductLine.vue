@@ -44,11 +44,11 @@ export default defineComponent({
 
   &.disabled, &.unavailable {
     cursor: not-allowed;
-  }
 
-  > * {
-    opacity: .3;
-    pointer-events: none;
+    > * {
+      opacity: .3;
+      pointer-events: none;
+    }
   }
 
   &.disabled {
