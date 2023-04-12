@@ -49,55 +49,66 @@ export default {
 }
 </script>
 
-<style lang="sass" scoped>
-@use '../../../../assets/css/book'
+<style lang="scss" scoped>
+@use '../../../../assets/css/book';
 
-.product
-  gap: .5em
-  display: flex
-  padding: .5em 0
-  justify-content: space-between
+.product {
+  gap: .5em;
+  display: flex;
+  padding: .5em 0;
+  justify-content: space-between;
 
-  *
-    user-select: none
+  * {
+    user-select: none;
+  }
 
-  &__infos
-    gap: .5em
-    display: flex
-    flex-direction: column
+  &__infos {
+    gap: .5em;
+    display: flex;
+    flex-direction: column;
+  }
 
-    &--name
-      font-weight: 600
+  &--name {
+    font-weight: 600;
+  }
 
-    &__actions
-      gap: .5em
-      display: flex
-      align-items: center
+  &__actions {
+    gap: .5em;
+    display: flex;
+    align-items: center;
 
-      &--button
-        width: 1.5em
-        display: grid
-        border-radius: .5em
-        aspect-ratio: 1 / 1
-        place-content: center
-        background: book.$bg-accent
+    &--button {
+      width: 1.5em;
+      display: grid;
+      border-radius: .5em;
+      aspect-ratio: 1 / 1;
+      place-content: center;
+      background: book.$bg-accent;
 
-        &.disabled
-          cursor: not-allowed
+      &.disabled {
+        cursor: not-allowed
+      }
+    }
 
-      &--amount
-        opacity: .6
+    &--amount {
+      opacity: .6;
+    }
+  }
 
-  &__resume
-    gap: .5em
-    display: flex
-    align-items: center
+  &__resume {
+    gap: .5em;
+    display: flex;
+    align-items: center;
 
-    &--price
-      white-space: nowrap
+    &--price {
+      white-space: nowrap;
+    }
 
-    &--clear
-      height: 100%
-      padding: 0 .5em
-      color: book.$alert
+    &--clear {
+      height: 100%;
+      padding: 0 .5em;
+      color: book.$alert;
+    }
+  }
+}
 </style>

@@ -127,207 +127,241 @@ export default {
 }
 </script>
 
-<style lang="sass" scoped>
-@use '../../assets/css/book'
+<style lang="scss" scoped>
+@use '../../assets/css/book';
 
-$border-radius: .75em
+$border-radius: .75em;
 
-.selling
-  gap: .5em
-  display: flex
-  position: relative
-  padding-bottom: 2em
-  flex-direction: column
-  height: calc(100vh - 7.5em)
+.selling {
+  gap: .5em;
+  display: flex;
+  position: relative;
+  padding-bottom: 2em;
+  flex-direction: column;
+  height: calc(100vh - 7.5em);
 
-  &__filters
-    gap: 1.5em
-    width: 100%
-    z-index: 999
-    display: flex
-    background: book.$bg
+  &__filters {
+    gap: 1.5em;
+    width: 100%;
+    z-index: 999;
+    display: flex;
+    background: book.$bg;
 
-    &--search
-      flex: 1 1 100%
+    &--search {
+      flex: 1 1 100%;
+    }
 
-    &--options
-      gap: .75em
-      display: flex
-      flex: 0 0 auto
-      color: book.$bg
-      line-height: 100%
-      padding: 1em 1.5em
-      align-items: center
-      background: book.$gradient
-      border-radius: $border-radius
+    &--options {
+      gap: .75em;
+      display: flex;
+      flex: 0 0 auto;
+      color: book.$bg;
+      line-height: 100%;
+      padding: 1em 1.5em;
+      align-items: center;
+      background: book.$gradient;
+      border-radius: $border-radius;
+    }
 
-    &__display
-      display: flex
-      flex: 0 0 auto
+    &__display {
+      display: flex;
+      flex: 0 0 auto;
 
-      &--button
-        width: 3em
-        display: grid
-        overflow: hidden
-        position: relative
-        isolation: isolate
-        aspect-ratio: 1 / 1
-        place-content: center
-        transition: color 350ms ease-in-out
+      &--button {
+        width: 3em;
+        display: grid;
+        overflow: hidden;
+        position: relative;
+        isolation: isolate;
+        aspect-ratio: 1 / 1;
+        place-content: center;
+        transition: color 350ms ease-in-out;
 
-        &::before
-          top: 0
-          left: 0
-          content: ''
-          width: 100%
-          z-index: -1
-          position: absolute
-          aspect-ratio: 1 / 1
-          background: book.$gradient
-          border-radius: $border-radius
-          transition: transform 350ms ease-in-out
+        &::before {
+          top: 0;
+          left: 0;
+          content: '';
+          width: 100%;
+          z-index: -1;
+          position: absolute;
+          aspect-ratio: 1 / 1;
+          background: book.$gradient;
+          border-radius: $border-radius;
+          transition: transform 350ms ease-in-out;
+        }
 
-        &:first-child
-          border-radius: $border-radius 0 0 $border-radius
+        &:first-child {
+          border-radius: $border-radius 0 0 $border-radius;
 
-          &::before
-            transform: translateX(100%)
+          &::before {
+            transform: translateX(100%);
+          }
+        }
 
-        &:last-child
-          border-radius: 0 $border-radius $border-radius 0
+        &:last-child {
+          border-radius: 0 $border-radius $border-radius 0;
 
-          &::before
-            transform: translateX(-100%)
+          &::before {
+            transform: translateX(-100%);
+          }
+        }
 
-        &.active
-          color: book.$bg
+        &.active {
+          color: book.$bg;
 
-          &::before
-            transform: none
+          &::before {
+            transform: none;
+          }
+        }
+      }
+    }
+  }
 
-  &--wrapper
-    gap: 2em
-    display: flex
-    flex: 1 1 100%
-    padding: 1em 0
-    overflow-y: scroll
-    align-items: flex-start
+  &--wrapper {
+    gap: 2em;
+    display: flex;
+    flex: 1 1 100%;
+    padding: 1em 0;
+    overflow-y: scroll;
+    align-items: flex-start;
+  }
 
-  &__products
-    flex: 1 1 100%
+  &__products {
+    flex: 1 1 100%;
 
-    &.grid
-      display: grid
-      gap: 1.5em 1em
-      grid-template-columns: repeat(auto-fill, minmax(12.5em, 1fr))
+    &.grid {
+      display: grid;
+      gap: 1.5em 1em;
+      grid-template-columns: repeat(auto-fill, minmax(12.5em, 1fr));
+    }
 
-    &.line
-      gap: 1em
-      display: flex
-      flex-direction: column
+    &.line {
+      gap: 1em;
+      display: flex;
+      flex-direction: column;
+    }
+  }
 
-  &__cart
-    top: 0
-    gap: 2em
-    display: flex
-    flex: 0 0 33%
-    position: sticky
-    max-width: 17.5em
-    flex-direction: column
+  &__cart {
+    top: 0;
+    gap: 2em;
+    display: flex;
+    flex: 0 0 33%;
+    position: sticky;
+    max-width: 17.5em;
+    flex-direction: column;
 
-    &__resume
-      padding: 0 1.25em
-      line-height: 100%
-      border-radius: 1.5em
-      background: book.$bg
-      box-shadow: 0 .5em 1.5em 0 book.$shadow-tint
+    &__resume {
+      padding: 0 1.25em;
+      line-height: 100%;
+      border-radius: 1.5em;
+      background: book.$bg;
+      box-shadow: 0 .5em 1.5em 0 book.$shadow-tint;
 
-      &__header
-        display: flex
-        padding: 1em .5em
-        position: relative
-        align-items: center
-        justify-content: space-between
+      &__header {
+        display: flex;
+        padding: 1em .5em;
+        position: relative;
+        align-items: center;
+        justify-content: space-between;
 
-        &::after
-          left: 0
-          bottom: 0
-          content: ''
-          height: 2px
-          width: 100%
-          opacity: .2
-          position: absolute
-          background: book.$txt
-          transform: translateY(50%)
+        &::after {
+          left: 0;
+          bottom: 0;
+          content: '';
+          height: 2px;
+          width: 100%;
+          opacity: .2;
+          position: absolute;
+          background: book.$txt;
+          transform: translateY(50%);
+        }
 
-        &--title
-          font-weight: 700
-          font-size: 1.25em
+        &--title {
+          font-weight: 700;
+          font-size: 1.25em;
+        }
+      }
 
-      &--wrapper
-        gap: 1.5em
-        display: flex
-        overflow: auto
-        padding: .5em 0
-        max-height: 17.5em
-        flex-direction: column
+      &--wrapper {
+        gap: 1.5em;
+        display: flex;
+        overflow: auto;
+        padding: .5em 0;
+        max-height: 17.5em;
+        flex-direction: column;
+      }
 
-      &--empty
-        opacity: .4
-        padding: .5em 0
-        text-align: center
+      &--empty {
+        opacity: .4;
+        padding: .5em 0;
+        text-align: center;
+      }
 
-      &--product
-        position: relative
+      &--product {
+        position: relative;
 
-        &:not(:last-child)
-          &::after
-            left: 0
-            width: 100%
-            height: 1px
-            content: ''
-            opacity: .1
-            bottom: -.75em
-            position: absolute
-            background: book.$txt
+        &:not(:last-child) {
+          &::after {
+            left: 0;
+            width: 100%;
+            height: 1px;
+            content: '';
+            opacity: .1;
+            bottom: -.75em;
+            position: absolute;
+            background: book.$txt;
+          }
+        }
+      }
 
-      &__footer
-        display: flex
-        padding: 1em .5em
-        line-height: 100%
-        position: relative
-        align-items: center
-        justify-content: space-between
+      &__footer {
+        display: flex;
+        padding: 1em .5em;
+        line-height: 100%;
+        position: relative;
+        align-items: center;
+        justify-content: space-between;
 
-        &::before
-          top: 0
-          left: 0
-          content: ''
-          height: 2px
-          width: 100%
-          opacity: .2
-          position: absolute
-          background: book.$txt
-          transform: translateY(-50%)
+        &::before {
+          top: 0;
+          left: 0;
+          content: '';
+          height: 2px;
+          width: 100%;
+          opacity: .2;
+          position: absolute;
+          background: book.$txt;
+          transform: translateY(-50%);
+        }
 
-        &--price
-          font-weight: 700
+        &--price {
+          font-weight: 700;
+        }
+      }
+    }
 
-    &__checkout
-      gap: 1em
-      display: grid
-      grid-template-columns: 1fr 1fr
+    &__checkout {
+      gap: 1em;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
 
-      &--method
-        padding: 1em 1.25em
-        border-radius: .75em
-        background: book.$bg-accent
-        transition: color 150ms ease-in-out
+      &--method {
+        padding: 1em 1.25em;
+        border-radius: .75em;
+        background: book.$bg-accent;
+        transition: color 150ms ease-in-out;
 
-        &.disabled
-          cursor: not-allowed
-          color: book.$txt-disabled
+        &.disabled {
+          cursor: not-allowed;
+          color: book.$txt-disabled;
+        }
 
-        &:last-child
-          grid-column: span 2
+        &:last-child {
+          grid-column: span 2;
+        }
+      }
+    }
+  }
+}
 </style>
