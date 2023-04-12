@@ -19,7 +19,7 @@ const routes = [
       {
         path: '/sell',
         name: 'Magasin',
-        component: () => import('@/views/products/SellingView.vue'),
+        component: () => import('@/views/products/SellingPanel.vue'),
         meta: {
           title: 'Magasin'
         }
