@@ -2,9 +2,9 @@
   <span class="icon" v-if="icon" v-html="icon"></span>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue'
-import { icons } from '@/assets/scripts/icons'
+import icons from '@/assets/scripts/icons'
 
 export default defineComponent({
   name: 'IconRenderer',
