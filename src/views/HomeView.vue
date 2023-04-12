@@ -18,7 +18,7 @@
         <div class="accounts__line" :key="a" v-for="a in accounts">
           <h3 class="accounts__line--name">{{ a.name }}</h3>
           <p class="accounts__line--amount">
-            {{ a.toCome < 0 ? '-' : '' }}{{ Math.abs(a.amount).toFixed(2).toString().replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, ' ') }} €
+            {{ a.amount < 0 ? '-' : '' }}{{ Math.abs(a.amount).toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, ' ') }} €
             <span class="accounts__line--amount__details" v-if="a.toCome">({{ a.toCome >= 0 ? '+' : '-' }} {{ Math.abs(a.toCome).toFixed(2).toString().replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, ' ') }} €)</span>
           </p>
         </div>
