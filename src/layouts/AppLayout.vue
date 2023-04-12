@@ -278,5 +278,6 @@ export default defineComponent({
 
   &__content
     width: 100%
-    padding: 1.5em 3em
+    padding: 0 3rem
+    min-height: calc(100vh - 7.5em)
 </style>

@@ -1,7 +1,11 @@
 export function searchParser (text) {
   return text.toLowerCase()
-    .replaceAll(/[éèëê]/g, 'e')
-    .replaceAll(/[ïî]/g, 'i')
-    .replaceAll(/[öô]/g, 'o')
-    .replaceAll(/[- ]/g, '')
+    .replace(/[éèëê]/g, 'e')
+    .replace(/[ïî]/g, 'i')
+    .replace(/[öô]/g, 'o')
+    .replace(/[- ]/g, '')
+}
+
+export function parseMoney (number) {
+  return number.toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
 }

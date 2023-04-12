@@ -1,12 +1,12 @@
 <template>
-  <div v-if="product" @click.prevent="$emit('clicked', { product })" class="product" :class="{ preferred: false, disabled: product.stock <= 0 }">
+  <div v-if="product" @click.prevent="$emit('clicked', { product })" class="product" :class="{ preferred: false, disabled: product.stock <= 0, unavailable: $store.state.cart[product.name]?.amount >= product.stock }">
     <img :src="product.image" alt="" class="product--thumbnail" />
 
     <div class="product--content">
       <h3 class="product--name">{{ product.name }}</h3>
 
       <div class="product__credentials">
-        <p class="product__credentials--price">{{ product.price.toFixed(2) }} €</p>
+        <p class="product__credentials--price">{{ parseMoney(product.price) }} €</p>
         <p class="product__credentials--amount">{{ product.stock }}</p>
       </div>
     </div>
@@ -15,9 +15,11 @@
 
 <script>
 import { defineComponent } from 'vue'
+import { parseMoney } from '@/assets/scripts/functions'
 
 export default defineComponent({
   name: 'ProductCard',
+  methods: { parseMoney },
   props: {
     product: {
       type: Object,
@@ -43,13 +45,15 @@ export default defineComponent({
   &.preferred
     order: -1
 
-  &.disabled
-    order: 1
+  &.disabled, &.unavailable
     cursor: not-allowed
 
     > *
       opacity: .3
       pointer-events: none
+
+  &.disabled
+    order: 1
 
   *
     user-select: none
@@ -80,7 +84,7 @@ export default defineComponent({
     align-items: center
     justify-content: space-between
 
-  &:not(.disabled):hover
+  &:not(.disabled):not(.unavailable):hover
     > img
       transform: scale(1.07) translateY(-.35em)
 </style>
