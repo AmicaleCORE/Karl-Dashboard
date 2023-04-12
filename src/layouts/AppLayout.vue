@@ -237,22 +237,22 @@ export default defineComponent({
 
         &:hover {
           background-color: book.$txt-special;
+
+          > span::before {
+            border-color: book.$txt-special;
+          }
         }
 
-        > span::before {
-          border-color: book.$txt-special;
-        }
-      }
+        &__content {
+          &--name {
+            font-weight: 500;
+          }
 
-      &__content {
-        &--name {
-          font-weight: 500;
-        }
-
-        &--role {
-          opacity: .6;
-          font-size: .75em;
-          line-height: 100%;
+          &--role {
+            opacity: .6;
+            font-size: .75em;
+            line-height: 100%;
+          }
         }
       }
 
