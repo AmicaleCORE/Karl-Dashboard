@@ -90,7 +90,14 @@ export default {
 
       if (cartProduct && cartProduct.amount >= cartProduct.stock) return
 
-      if (!cartProduct) cartProduct = { name: product.name, stock: product.stock, price: product.price, amount: 0 }
+      if (!cartProduct) {
+        cartProduct = {
+          name: product.name,
+          stock: product.stock,
+          price: product.price,
+          amount: 0
+        }
+      }
       this.increaseProductQuantity({ target: cartProduct, amount: 1 })
     },
     increaseProductQuantity (e) {
