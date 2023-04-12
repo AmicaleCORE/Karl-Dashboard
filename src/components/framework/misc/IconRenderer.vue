@@ -28,9 +28,10 @@ export default defineComponent({
 })
 </script>
 
-<style lang="sass" scoped>
-.icon
-  height: 1em
-  display: block
-  width: fit-content
+<style lang="scss" scoped>
+.icon {
+  height: 1em;
+  display: block;
+  width: fit-content;
+}
 </style>

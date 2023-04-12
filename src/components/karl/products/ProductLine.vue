@@ -26,86 +26,102 @@ export default defineComponent({
 })
 </script>
 
-<style lang="sass" scoped>
-@use "../../../assets/css/book"
+<style lang="scss" scoped>
+@use "../../../assets/css/book";
 
-.product
-  gap: 1em
-  display: flex
-  cursor: pointer
-  align-items: center
-  border-radius: 1.4em
-  padding: .5em 1em .5em .5em
-  box-shadow: 0 .25em 1em 0 book.$shadow-tint
+.product {
+  gap: 1em;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  border-radius: 1.4em;
+  padding: .5em 1em .5em .5em;
+  box-shadow: 0 .25em 1em 0 book.$shadow-tint;
 
-  &.preferred
-    order: -1
+  &.preferred {
+    order: -1;
+  }
 
-  &.disabled, &.unavailable
-    cursor: not-allowed
+  &.disabled, &.unavailable {
+    cursor: not-allowed;
+  }
 
-    > *
-      opacity: .3
-      pointer-events: none
+  > * {
+    opacity: .3;
+    pointer-events: none;
+  }
 
-  &.disabled
-    order: 1
+  &.disabled {
+    order: 1;
+  }
 
-  *
-    user-select: none
+  * {
+    user-select: none;
+  }
 
-  &--thumbnail
-    width: 3em
-    object-fit: cover
-    border-radius: 1em
-    aspect-ratio: 1 / 1
-    transition: transform 250ms ease-in-out
+  &--thumbnail {
+    width: 3em;
+    object-fit: cover;
+    border-radius: 1em;
+    aspect-ratio: 1 / 1;
+    transition: transform 250ms ease-in-out;
+  }
 
-  &--name
-    flex: 1 1 100%
+  &--name {
+    flex: 1 1 100%;
+  }
 
-  &__info
-    gap: 1em
-    display: flex
-    flex: 0 0 auto
-    align-items: center
+  &__info {
+    gap: 1em;
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
 
-    &::before
-      width: 1px
-      content: ''
-      height: 2em
-      opacity: .15
-      display: block
-      background-color: currentColor
+    &::before {
+      width: 1px;
+      content: '';
+      height: 2em;
+      opacity: .15;
+      display: block;
+      background-color: currentColor;
+    }
 
-    &--price
-      order: -1
+    &--price {
+      order: -1;
+    }
 
-    &--quantity
-      width: 3ch
-      line-height: 2em
-      text-align: right
-      position: relative
+    &--quantity {
+      width: 3ch;
+      line-height: 2em;
+      text-align: right;
+      position: relative;
 
-      &.tooltip::before
-        right: 0
-        opacity: 0
-        bottom: 100%
-        color: book.$bg
-        line-height: 100%
-        user-select: none
-        padding: .5em 1em
-        position: absolute
-        border-radius: .5em
-        pointer-events: none
-        background: book.$txt
-        content: attr(data-amount)
-        transition-duration: 350ms
-        transform: translateY(-.5em)
-        transition-timing-function: ease-in-out
-        transition-property: opacity, transform
+      &.tooltip {
+        &::before {
+          right: 0;
+          opacity: 0;
+          bottom: 100%;
+          color: book.$bg;
+          line-height: 100%;
+          user-select: none;
+          padding: .5em 1em;
+          position: absolute;
+          border-radius: .5em;
+          pointer-events: none;
+          background: book.$txt;
+          content: attr(data-amount);
+          transition-duration: 350ms;
+          transform: translateY(-.5em);
+          transition-timing-function: ease-in-out;
+          transition-property: opacity, transform;
+        }
 
-      &.tooltip:hover::before
-        opacity: 1
-        transform: none
+        &:hover::before {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    }
+  }
+}
 </style>

@@ -29,46 +29,55 @@ export default defineComponent({
 })
 </script>
 
-<style lang="sass" scoped>
-@use "../../../assets/css/book"
+<style lang="scss" scoped>
+@use "../../../assets/css/book";
 
-.input
-  $inset: 1.25em
+.input {
+  $inset: 1.25em;
 
-  position: relative
-  border-radius: .75em
-  background-color: book.$bg-accent
+  position: relative;
+  border-radius: .75em;
+  background-color: book.$bg-accent;
 
-  &--field
-    width: 100%
-    line-height: 100%
-    padding: 1em $inset
+  &--field {
+    width: 100%;
+    line-height: 100%;
+    padding: 1em $inset;
 
-    &:hover
-      + .input--label
-        opacity: 1
+    &:hover {
+      + .input--label {
+        opacity: 1;
+      }
+    }
 
-    &:focus, &:valid
-      + .input--label
-        opacity: 0
+    &:focus, &:valid {
+      + .input--label {
+        opacity: 0;
+      }
+    }
+  }
 
-  &--label
-    top: 50%
-    opacity: .3
-    left: $inset
-    position: absolute
-    pointer-events: none
-    transform: translateY(-50%)
-    transition: opacity 100ms ease-in-out
+  &--label {
+    top: 50%;
+    opacity: .3;
+    left: $inset;
+    position: absolute;
+    pointer-events: none;
+    transform: translateY(-50%);
+    transition: opacity 100ms ease-in-out;
+  }
 
-  &--action
-    top: 50%
-    opacity: .3
-    right: $inset
-    position: absolute
-    transform: translateY(-50%)
-    transition: opacity 100ms ease-in-out
+  &--action {
+    top: 50%;
+    opacity: .3;
+    right: $inset;
+    position: absolute;
+    transform: translateY(-50%);
+    transition: opacity 100ms ease-in-out;
 
-    &:hover
-      opacity: 1
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
 </style>

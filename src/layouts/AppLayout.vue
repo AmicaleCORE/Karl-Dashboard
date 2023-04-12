@@ -77,207 +77,242 @@ export default defineComponent({
 })
 </script>
 
-<style lang="sass" scoped>
-@use '../assets/css/book'
+<style lang="scss" scoped>
+@use '../assets/css/book';
 
-.wrapper
-  display: flex
+.wrapper {
+  display: flex;
+}
 
-.sidebar
-  top: 0
-  gap: 1.5em
-  height: 100vh
-  display: flex
-  color: book.$bg
-  position: sticky
-  padding: 2em 1.5em
-  flex-direction: column
-  border-top-right-radius: 2.5em
-  background-image: book.$gradient
+.sidebar {
+  top: 0;
+  gap: 1.5em;
+  height: 100vh;
+  display: flex;
+  color: book.$bg;
+  position: sticky;
+  padding: 2em 1.5em;
+  flex-direction: column;
+  border-top-right-radius: 2.5em;
+  background-image: book.$gradient;
 
-  &__header
-    flex: 0 0 auto
-    padding: 0 1em
+  &__header {
+    flex: 0 0 auto;
+    padding: 0 1em;
 
-    &--name
-      font-size: 1.5em
-      font-weight: 800
+    &--name {
+      font-size: 1.5em;
+      font-weight: 800;
+    }
 
-    &--description
-      opacity: .7
-      line-height: 100%
-      white-space: nowrap
+    &--description {
+      opacity: .7;
+      line-height: 100%;
+      white-space: nowrap;
+    }
+  }
 
-  &__content
-    display: flex
-    flex: 1 1 100%
-    flex-direction: column
-    justify-content: space-between
+  &__content {
+    display: flex;
+    flex: 1 1 100%;
+    flex-direction: column;
+    justify-content: space-between;
 
-    &__links
-      gap: .5em
-      display: flex
-      flex-direction: column
+    &__links {
+      gap: .5em;
+      display: flex;
+      flex-direction: column;
+    }
 
-    &__extra
-      gap: 1em
-      display: flex
-      align-items: center
-      flex-direction: column
+    &__extra {
+      gap: 1em;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
 
-      &--hour
-        opacity: .5
-        font-size: 1.5em
-        line-height: 100%
+      &--hour {
+        opacity: .5;
+        font-size: 1.5em;
+        line-height: 100%;
+      }
+    }
 
-    &__link
-      gap: 1em
-      display: flex
-      line-height: 100%
-      padding: 1em 1.5em
-      white-space: nowrap
-      border-radius: 10em
-      align-items: center
-      justify-content: space-between
-      transition: background-color 200ms ease-in-out
+    &__link {
+      gap: 1em;
+      display: flex;
+      line-height: 100%;
+      padding: 1em 1.5em;
+      white-space: nowrap;
+      border-radius: 10em;
+      align-items: center;
+      justify-content: space-between;
+      transition: background-color 200ms ease-in-out;
 
-      &::after
-        opacity: 0
-        width: .5em
-        content: ''
-        border-radius: 1em
-        aspect-ratio: 1 / 1
-        background-image: book.$gradient
-        transition: opacity 200ms ease-in-out
-        box-shadow: 0 0 0 .175em book.$bg-m-opacity
+      &::after {
+        opacity: 0;
+        width: .5em;
+        content: '';
+        border-radius: 1em;
+        aspect-ratio: 1 / 1;
+        background-image: book.$gradient;
+        transition: opacity 200ms ease-in-out;
+        box-shadow: 0 0 0 .175em book.$bg-m-opacity;
+      }
 
-      &.active
-        background-color: book.$bg-h-opacity
+      &.active {
+        background-color: book.$bg-h-opacity;
 
-        &::after
-          opacity: 1
+        &::after {
+          opacity: 1;
+        }
+      }
 
-      &:hover
-        background-color: book.$bg-h-opacity
+      &:hover {
+        background-color: book.$bg-h-opacity;
+      }
+    }
+  }
+}
 
-.page
-  flex: 1 1 100%
-  min-height: 100vh
+.page {
+  flex: 1 1 100%;
+  min-height: 100vh;
 
-  &__header
-    top: 0
-    width: 100%
-    z-index: 998
-    display: flex
-    position: sticky
-    padding: 2em 3em
-    align-items: center
-    backdrop-filter: blur(1em)
-    justify-content: space-between
-    background-color: book.$bg-m-opacity
+  &__header {
+    top: 0;
+    width: 100%;
+    z-index: 998;
+    display: flex;
+    position: sticky;
+    padding: 2em 3em;
+    align-items: center;
+    backdrop-filter: blur(1em);
+    justify-content: space-between;
+    background-color: book.$bg-m-opacity;
 
-    &__name
-      font-size: 1.5em
-      font-weight: 600
+    &__name {
+      font-size: 1.5em;
+      font-weight: 600;
+    }
 
-    &__account
-      gap: 2em
-      display: flex
-      align-items: center
+    &__account {
+      gap: 2em;
+      display: flex;
+      align-items: center;
 
-      &__profile
-        $radius: .75em
+      &__profile {
+        $radius: .75em;
 
-        gap: 1em
-        display: flex
-        padding: .5em 1em .5em .5em
-        align-items: center
-        border-radius: calc($radius * 1.5)
-        transition: background-color 200ms ease-in-out
+        gap: 1em;
+        display: flex;
+        padding: .5em 1em .5em .5em;
+        align-items: center;
+        border-radius: calc($radius * 1.5);
+        transition: background-color 200ms ease-in-out;
 
-        &__avatar
-          position: relative
+        &__avatar {
+          position: relative;
 
-          &--image
-            height: 2.5em
-            object-fit: cover
-            aspect-ratio: 1 / 1
-            border-radius: $radius
+          &--image {
+            height: 2.5em;
+            object-fit: cover;
+            aspect-ratio: 1 / 1;
+            border-radius: $radius;
+          }
 
-          &::before
-            left: 0
-            top: 50%
-            content: ''
-            height: .75em
-            border-radius: 50%
-            position: absolute
-            aspect-ratio: 1 / 1
-            border: 3px solid book.$bg
-            background-image: book.$gradient
-            transform: translate(-50%, -50%)
-            transition: border-color 200ms ease-in-out
+          &::before {
+            left: 0;
+            top: 50%;
+            content: '';
+            height: .75em;
+            border-radius: 50%;
+            position: absolute;
+            aspect-ratio: 1 / 1;
+            border: 3px solid book.$bg;
+            background-image: book.$gradient;
+            transform: translate(-50%, -50%);
+            transition: border-color 200ms ease-in-out;
+          }
+        }
 
-        &:hover
-          background-color: book.$txt-special
+        &:hover {
+          background-color: book.$txt-special;
+        }
 
-          > span::before
-            border-color: book.$txt-special
+        > span::before {
+          border-color: book.$txt-special;
+        }
+      }
 
-        &__content
-          &--name
-            font-weight: 500
+      &__content {
+        &--name {
+          font-weight: 500;
+        }
 
-          &--role
-            opacity: .6
-            font-size: .75em
-            line-height: 100%
+        &--role {
+          opacity: .6;
+          font-size: .75em;
+          line-height: 100%;
+        }
+      }
 
-      &__actions
-        gap: 1em
-        display: flex
+      &__actions {
+        gap: 1em;
+        display: flex;
 
-        &::before
-          width: 1px
-          content: ''
-          opacity: .2
-          display: block
-          background-color: currentColor
+        &::before {
+          width: 1px;
+          content: '';
+          opacity: .2;
+          display: block;
+          background-color: currentColor;
+        }
+      }
 
+      &__action {
+        padding: .5rem;
+        font-size: 1.5em;
+        position: relative;
+        border-radius: .5em;
+        transition: background-color 200ms ease-in-out;
 
-      &__action
-        padding: .5rem
-        font-size: 1.5em
-        position: relative
-        border-radius: .5em
-        transition: background-color 200ms ease-in-out
+        &:first-child {
+          order: -1;
+        }
 
-        &:first-child
-          order: -1
+        &.active {
+          $offset: .15em;
 
-        &.active
-          $offset: .15em
+          &::before {
+            top: 0;
+            right: 0;
+            content: '';
+            height: .25em;
+            border-radius: 50%;
+            position: absolute;
+            aspect-ratio: 1 / 1;
+            background-image: book.$gradient;
+            transform: translate(-.5em, .35em);
+            box-shadow: 0 0 0 $offset book.$bg;
+            transition: box-shadow 200ms ease-in-out;
+          }
 
-          &::before
-            top: 0
-            right: 0
-            content: ''
-            height: .25em
-            border-radius: 50%
-            position: absolute
-            aspect-ratio: 1 / 1
-            background-image: book.$gradient
-            transform: translate(-.5em, .35em)
-            box-shadow: 0 0 0 $offset book.$bg
-            transition: box-shadow 200ms ease-in-out
+          &:hover::before {
+            box-shadow: 0 0 0 $offset book.$txt-special;
+          }
+        }
 
-          &:hover::before
-            box-shadow: 0 0 0 $offset book.$txt-special
+        &:hover {
+          background-color: book.$txt-special;
+        }
+      }
+    }
+  }
 
-        &:hover
-          background-color: book.$txt-special
-
-  &__content
-    width: 100%
-    padding: 0 3rem
-    min-height: calc(100vh - 7.5em)
+  &__content {
+    width: 100%;
+    padding: 0 3rem;
+    min-height: calc(100vh - 7.5em);
+  }
+}
 </style>

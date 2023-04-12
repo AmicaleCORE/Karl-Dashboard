@@ -29,62 +29,74 @@ export default defineComponent({
 })
 </script>
 
-<style lang="sass" scoped>
-@use "../../../assets/css/book"
+<style lang="scss" scoped>
+@use "../../../assets/css/book";
 
-.product
-  gap: 1em
-  display: flex
-  cursor: pointer
-  border-radius: 1em
-  padding: 1em 1.5em
-  align-items: center
-  flex-direction: column
-  box-shadow: 0 .25em 1em 0 book.$shadow-tint
+.product {
+  gap: 1em;
+  display: flex;
+  cursor: pointer;
+  border-radius: 1em;
+  padding: 1em 1.5em;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 .25em 1em 0 book.$shadow-tint;
 
-  &.preferred
-    order: -1
+  &.preferred {
+    order: -1;
+  }
 
-  &.disabled, &.unavailable
-    cursor: not-allowed
+  &.disabled, &.unavailable {
+    cursor: not-allowed;
 
-    > *
-      opacity: .3
-      pointer-events: none
+    > * {
+      opacity: .3;
+      pointer-events: none;
+    }
+  }
 
-  &.disabled
-    order: 1
+  &.disabled {
+    order: 1;
+  }
 
-  *
-    user-select: none
+  * {
+    user-select: none;
+  }
 
-  &--content
-    gap: .5em
-    width: 100%
-    height: 100%
-    display: flex
-    flex-direction: column
-    justify-content: space-between
+  &--content {
+    gap: .5em;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
-  &--thumbnail
-    width: 3em
-    object-fit: cover
-    border-radius: 1em
-    aspect-ratio: 1 / 1
-    transition: transform 250ms ease-in-out
+  &--thumbnail {
+    width: 3em;
+    object-fit: cover;
+    border-radius: 1em;
+    aspect-ratio: 1 / 1;
+    transition: transform 250ms ease-in-out;
+  }
 
-  &--name
-    font-weight: 600
-    font-size: 1.25em
-    line-height: 100%
+  &--name {
+    font-weight: 600;
+    font-size: 1.25em;
+    line-height: 100%;
+  }
 
-  &__credentials
-    width: 100%
-    display: flex
-    align-items: center
-    justify-content: space-between
+  &__credentials {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
-  &:not(.disabled):not(.unavailable):hover
-    > img
-      transform: scale(1.07) translateY(-.35em)
+  &:not(.disabled):not(.unavailable):hover {
+    > img {
+      transform: scale(1.07) translateY(-.35em);
+    }
+  }
+}
 </style>

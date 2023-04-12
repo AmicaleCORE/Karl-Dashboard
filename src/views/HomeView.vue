@@ -91,106 +91,124 @@ export default defineComponent({
 })
 </script>
 
-<style lang="sass" scoped>
-@use '../assets/css/book'
+<style lang="scss" scoped>
+@use '../assets/css/book';
 
-.home
-  gap: 2em
-  width: 100%
-  display: grid
-  grid-template-columns: repeat(3, 1fr)
+.home {
+  gap: 2em;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 
-  &__panel
-    gap: 1.5em
-    display: flex
-    min-height: 18em
-    padding: 1.5em 1em
-    align-items: stretch
-    border-radius: 1.5em
-    flex-direction: column
-    background-color: book.$bg
-    box-shadow: 0 .5em 1.5em 0 book.$shadow-tint
+  &__panel {
+    gap: 1.5em;
+    display: flex;
+    min-height: 18em;
+    padding: 1.5em 1em;
+    align-items: stretch;
+    border-radius: 1.5em;
+    flex-direction: column;
+    background-color: book.$bg;
+    box-shadow: 0 .5em 1.5em 0 book.$shadow-tint;
 
-    &__header
-      width: 100%
-      display: flex
-      align-items: center
-      justify-content: space-between
+    &__header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
-      &__title
-        font-weight: 700
-        line-height: 100%
+      &__title {
+        font-weight: 700;
+        line-height: 100%;
+      }
+    }
 
     // SECTIONS \\
-    .accounts
-      &__content
-        gap: 1em
-        display: flex
-        align-items: stretch
-        flex-direction: column
+    .accounts {
+      &__content {
+        gap: 1em;
+        display: flex;
+        align-items: stretch;
+        flex-direction: column;
+      }
 
-      &__line
-        display: flex
-        gap: 1em
-        align-items: center
-        justify-content: space-between
+      &__line {
+        display: flex;
+        gap: 1em;
+        align-items: center;
+        justify-content: space-between;
 
-        &--name
-          opacity: .5
-          flex: 1 1 100%
-          font-weight: 500
+        &--name {
+          opacity: .5;
+          flex: 1 1 100%;
+          font-weight: 500;
+        }
 
-        &--amount
-          display: flex
-          flex: 0 0 auto
-          font-size: 1.5em
-          font-weight: 500
-          align-items: flex-end
-          flex-direction: column
+        &--amount {
+          display: flex;
+          flex: 0 0 auto;
+          font-size: 1.5em;
+          font-weight: 500;
+          align-items: flex-end;
+          flex-direction: column;
 
-          &__details
-            font-size: .6em
-            font-weight: 400
-            position: relative
-            color: book.$txt-accent
+          &__details {
+            font-size: .6em;
+            font-weight: 400;
+            position: relative;
+            color: book.$txt-accent;
 
-            &::after
-              left: 0
-              top: 100%
-              opacity: 0
-              z-index: 998
-              font-size: 1em
-              color: book.$bg
-              position: absolute
-              white-space: nowrap
-              padding: .6em 1.2em
-              border-radius: .75em
-              pointer-events: none
-              transition-duration: 250ms
-              background-color: book.$txt
-              content: 'Unprocessed sales'
-              transform: translateY(-.5em)
-              transition-timing-function: ease-in-out
-              transition-property: opacity, transform
+            &::after {
+              left: 0;
+              top: 100%;
+              opacity: 0;
+              z-index: 998;
+              font-size: 1em;
+              color: book.$bg;
+              position: absolute;
+              white-space: nowrap;
+              padding: .6em 1.2em;
+              border-radius: .75em;
+              pointer-events: none;
+              transition-duration: 250ms;
+              background-color: book.$txt;
+              content: 'Unprocessed sales';
+              transform: translateY(-.5em);
+              transition-timing-function: ease-in-out;
+              transition-property: opacity, transform;
+            }
 
-            &:hover
-              &::after
-                opacity: 1
-                transform: none
+            &:hover {
+              &::after {
+                opacity: 1;
+                transform: none;
+              }
+            }
+          }
+        }
+      }
+    }
 
-    &.stock-alerts
-      grid-column: span 2
+    &.stock-alerts {
+      grid-column: span 2;
+    }
 
-    &.errors
-      grid-row: span 2
+    &.errors {
+      grid-row: span 2;
+    }
 
-    &.graph
-      grid-column: span 3
+    &.graph {
+      grid-column: span 3;
+    }
 
-    .products-graph
-      &__content
-        width: 100%
-        display: grid
-        place-content: center
-        grid-template-columns: repeat(2, 1fr)
+    .products-graph {
+      &__content {
+        width: 100%;
+        display: grid;
+        place-content: center;
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+}
 </style>
