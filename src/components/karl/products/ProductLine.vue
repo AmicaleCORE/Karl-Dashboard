@@ -1,15 +1,12 @@
 <template>
   <div v-if="product" @click.prevent="$emit('clicked', { product })" class="product" :class="{ preferred: false, disabled: product.stock <= 0 }">
     <img :src="product.image" alt="" class="product--thumbnail" />
+    <p class="product--name">{{ product.name }}</p>
 
-    <div class="product--content">
-      <h3 class="product--name">{{ product.name }}</h3>
-
-      <div class="product__credentials">
-        <p class="product__credentials--price">{{ product.price.toFixed(2) }} €</p>
-        <p class="product__credentials--amount">{{ product.stock }}</p>
-      </div>
-    </div>
+    <article class="product__info">
+      <p class="product__info--price">{{ product.price.toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, ' ') }} €</p>
+      <p class="product__info--quantity">{{ product.stock }}</p>
+    </article>
   </div>
 </template>
 
@@ -17,7 +14,7 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'ProductCard',
+  name: 'ProductLine',
   props: {
     product: {
       type: Object,
@@ -34,10 +31,9 @@ export default defineComponent({
   gap: 1em
   display: flex
   cursor: pointer
-  border-radius: 1em
-  padding: 1em 1.5em
   align-items: center
-  flex-direction: column
+  border-radius: 1.4em
+  padding: .5em 1em .5em .5em
   box-shadow: 0 .25em 1em 0 book.$shadow-tint
 
   &.preferred
@@ -54,14 +50,6 @@ export default defineComponent({
   *
     user-select: none
 
-  &--content
-    gap: .5em
-    width: 100%
-    height: 100%
-    display: flex
-    flex-direction: column
-    justify-content: space-between
-
   &--thumbnail
     width: 3em
     object-fit: cover
@@ -70,17 +58,23 @@ export default defineComponent({
     transition: transform 250ms ease-in-out
 
   &--name
-    font-weight: 600
-    font-size: 1.25em
-    line-height: 100%
+    flex: 1 1 100%
 
-  &__credentials
-    width: 100%
+  &__info
+    gap: 1em
+    height: 75%
     display: flex
+    flex: 0 0 auto
     align-items: center
-    justify-content: space-between
 
-  &:not(.disabled):hover
-    > img
-      transform: scale(1.07) translateY(-.35em)
+    &::before
+      width: 1px
+      content: ''
+      opacity: .15
+      height: 100%
+      display: block
+      background-color: currentColor
+
+    &--price
+      order: -1
 </style>
