@@ -81,7 +81,7 @@ export default defineComponent({
     font-size: 1.25em
     line-height: 100%
 
-  &__creds
+  &__credentials
     width: 100%
     display: flex
     align-items: center
