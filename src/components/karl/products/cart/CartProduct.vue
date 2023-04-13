@@ -66,32 +66,32 @@ export default {
     gap: .5em;
     display: flex;
     flex-direction: column;
-  }
 
-  &--name {
-    font-weight: 600;
-  }
-
-  &__actions {
-    gap: .5em;
-    display: flex;
-    align-items: center;
-
-    &--button {
-      width: 1.5em;
-      display: grid;
-      border-radius: .5em;
-      aspect-ratio: 1 / 1;
-      place-content: center;
-      background: book.$bg-accent;
-
-      &.disabled {
-        cursor: not-allowed
-      }
+    &--name {
+      font-weight: 600;
     }
 
-    &--amount {
-      opacity: .6;
+    &__actions {
+      gap: .5em;
+      display: flex;
+      align-items: center;
+
+      &--button {
+        width: 1.5em;
+        display: grid;
+        border-radius: .5em;
+        aspect-ratio: 1 / 1;
+        place-content: center;
+        background: book.$bg-accent;
+
+        &.disabled {
+          cursor: not-allowed
+        }
+      }
+
+      &--amount {
+        opacity: .6;
+      }
     }
   }
 
