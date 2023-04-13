@@ -17,7 +17,7 @@
             <p class="sidebar__content__extra--date" v-if="date" v-html="date"></p>
             <p class="sidebar__content__extra--hour" v-if="hour">{{ hour }}</p>
           </div>
-          <p class="sidebar__content__extra--version">0.1.0<br />BETA</p>
+          <p class="sidebar__content__extra--version">0.1.0-BETA</p>
         </section>
       </main>
     </nav>
@@ -98,8 +98,8 @@ export default defineComponent({
   display: flex;
   color: book.$bg;
   position: sticky;
-  padding: 2em 1.5em;
   flex-direction: column;
+  padding: 2em 1.5em .75em;
   border-top-right-radius: 2.5em;
   background-image: book.$gradient;
 
@@ -158,6 +158,8 @@ export default defineComponent({
       &--version {
         opacity: .3;
         font-weight: 300;
+        font-size: .85em;
+        margin-top: .5rem;
         text-align: center;
         text-transform: uppercase;
       }
