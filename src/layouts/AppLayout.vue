@@ -13,7 +13,11 @@
         </section>
 
         <section class="sidebar__content__extra">
-          <p class="sidebar__content__extra--hour" v-if="hour">{{ hour }}</p>
+          <div class="sidebar__content__extra--wrapper">
+            <p class="sidebar__content__extra--date" v-if="date" v-html="date"></p>
+            <p class="sidebar__content__extra--hour" v-if="hour">{{ hour }}</p>
+          </div>
+          <p class="sidebar__content__extra--version">0.1.0-BETA</p>
         </section>
       </main>
     </nav>
@@ -23,7 +27,7 @@
         <h2 class="page__header__name">{{ $route.name }}</h2>
 
         <aside class="page__header__account">
-          <RouterLink :to="{ path: '/profil', params: { title: username } }"  class="page__header__account__profile" aria-label="Mon profil">
+          <RouterLink :to="{ path: '/', params: { title: username } }"  class="page__header__account__profile" aria-label="Mon profil">
             <span class="page__header__account__profile__avatar">
               <img class="page__header__account__profile__avatar--image" src="/assets/images/avatar.avif" alt="" />
             </span>
@@ -56,6 +60,8 @@ import { defineComponent } from 'vue'
 import IconRenderer from '@/components/framework/misc/IconRenderer.vue'
 
 const date = new Date()
+const days = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi']
+const months = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre']
 export default defineComponent({
   name: 'AppLayout',
   components: { IconRenderer },
@@ -63,7 +69,8 @@ export default defineComponent({
     notifications: 1,
     username: 'Jane DOE',
     role: 'Administrateur',
-    hour: `${(date.getHours() < 10 ? '0' : '') + date.getHours()}:${(date.getMinutes() < 10 ? '0' : '') + date.getMinutes()}`
+    hour: `${(date.getHours() < 10 ? '0' : '') + date.getHours()}:${(date.getMinutes() < 10 ? '0' : '') + date.getMinutes()}`,
+    date: `${days[date.getDay()]}<br/>${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`
   }),
   created () {
     setInterval(() => {
@@ -91,8 +98,8 @@ export default defineComponent({
   display: flex;
   color: book.$bg;
   position: sticky;
-  padding: 2em 1.5em;
   flex-direction: column;
+  padding: 2em 1.5em .75em;
   border-top-right-radius: 2.5em;
   background-image: book.$gradient;
 
@@ -130,10 +137,31 @@ export default defineComponent({
       align-items: center;
       flex-direction: column;
 
+      &--wrapper {
+        gap: .5em;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      &--date {
+        opacity: .5;
+        text-align: center;
+      }
+
       &--hour {
         opacity: .5;
         font-size: 1.5em;
         line-height: 100%;
+      }
+
+      &--version {
+        opacity: .3;
+        font-weight: 300;
+        font-size: .85em;
+        margin-top: .5rem;
+        text-align: center;
+        text-transform: uppercase;
       }
     }
 
