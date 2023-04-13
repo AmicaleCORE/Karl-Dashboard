@@ -1,6 +1,6 @@
 <template>
   <div class="input">
-    <input type="text" class="input--field" v-model="value" @input="sendUpdate" required />
+    <input type="text" class="input--field" :disabled="readonly" v-model="inputValue" @input="sendUpdate" required />
     <span class="input--label"><slot></slot></span>
     <button v-if="allowClear" class="input--action" @click.prevent="clear">Clear</button>
   </div>
@@ -12,17 +12,22 @@ import { defineComponent } from 'vue'
 export default defineComponent({
   name: 'ShortInput',
   data: () => ({
-    value: undefined
+    inputValue: undefined
   }),
   props: {
-    allowClear: Boolean
+    allowClear: Boolean,
+    readonly: Boolean,
+    value: String
+  },
+  created () {
+    if (this.value) this.inputValue = this.value
   },
   methods: {
     sendUpdate () {
-      this.$emit('updated', { value: this.value })
+      this.$emit('updated', { value: this.inputValue })
     },
     clear () {
-      this.value = undefined
+      this.inputValue = undefined
       this.sendUpdate()
     }
   }
@@ -44,13 +49,17 @@ export default defineComponent({
     line-height: 100%;
     padding: 1em $inset;
 
+    &:disabled {
+      cursor: not-allowed;
+    }
+
     &:hover {
       + .input--label {
         opacity: 1;
       }
     }
 
-    &:focus, &:valid {
+    &:focus, &:valid, &:disabled {
       + .input--label {
         opacity: 0;
       }

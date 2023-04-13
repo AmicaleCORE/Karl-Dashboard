@@ -27,7 +27,7 @@
         <h2 class="page__header__name">{{ $route.name }}</h2>
 
         <aside class="page__header__account">
-          <RouterLink :to="{ path: '/', params: { title: username } }"  class="page__header__account__profile" aria-label="Mon profil">
+          <RouterLink to="/profile"  class="page__header__account__profile" aria-label="Mon profil">
             <span class="page__header__account__profile__avatar">
               <img class="page__header__account__profile__avatar--image" src="/assets/images/avatar.avif" alt="" />
             </span>
