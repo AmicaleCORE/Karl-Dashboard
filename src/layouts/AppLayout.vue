@@ -27,14 +27,14 @@
         <h2 class="page__header__name">{{ $route.name }}</h2>
 
         <aside class="page__header__account">
-          <RouterLink :to="{ path: '/', params: { title: username } }"  class="page__header__account__profile" aria-label="Mon profil">
+          <RouterLink to="/profile"  class="page__header__account__profile" aria-label="Mon profil">
             <span class="page__header__account__profile__avatar">
               <img class="page__header__account__profile__avatar--image" src="/assets/images/avatar.avif" alt="" />
             </span>
 
             <div class="page__header__account__profile__content">
-              <p class="page__header__account__profile__content--name">{{ username }}</p>
-              <p class="page__header__account__profile__content--role">{{ role }}</p>
+              <p class="page__header__account__profile__content--name">{{ $store.state.user.firstName }} {{ $store.state.user.lastName }}</p>
+              <p class="page__header__account__profile__content--role">{{ $store.state.user.role }}</p>
             </div>
           </RouterLink>
           <div class="page__header__account__actions">
@@ -67,8 +67,6 @@ export default defineComponent({
   components: { IconRenderer },
   data: () => ({
     notifications: 1,
-    username: 'Jane DOE',
-    role: 'Administrateur',
     hour: `${(date.getHours() < 10 ? '0' : '') + date.getHours()}:${(date.getMinutes() < 10 ? '0' : '') + date.getMinutes()}`,
     date: `${days[date.getDay()]}<br/>${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`
   }),

@@ -23,6 +23,14 @@ const routes = [
         meta: {
           title: 'Magasin'
         }
+      },
+      {
+        path: '/profile',
+        name: 'Profile',
+        component: () => import('@/views/users/profile/ProfileView.vue'),
+        meta: {
+          title: 'Mon profil'
+        }
       }
     ]
   }
@@ -35,11 +43,7 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   const title = to.meta.title
-  const dynamicTitle = to.params.title
-
   if (title) document.title = `Karl | ${title}`
-  if (dynamicTitle) document.title = `Karl | ${dynamicTitle}`
-
   next()
 })
 
