@@ -8,9 +8,10 @@ export default createStore({
       products: localStorage.getItem('display-products')
     },
     user: {
-      firstName: 'Jane',
-      lastName: 'DOE',
-      role: 'Administrateur'
+      userName: 'loic.maes',
+      firstName: 'Loïc',
+      lastName: 'MAES',
+      role: 'Bénévole'
     }
   },
   getters: {

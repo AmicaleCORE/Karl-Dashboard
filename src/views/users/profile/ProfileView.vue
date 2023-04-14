@@ -2,7 +2,7 @@
   <main class="me">
     <InformationPane class="me__credentials" name="Mes informations" :header-action="updates ? 'Sauvegarder' : undefined" @committed="updateDB">
       <div class="me__credentials--wrapper">
-        <ShortInput class="me__credentials--input large" value="jane.doe" readonly>Login</ShortInput>
+        <ShortInput class="me__credentials--input large" :value="$store.state.user.userName" readonly>Login</ShortInput>
         <ShortInput ref="firstname" class="me__credentials--input" :value="$store.state.user.firstName" @updated="updateField($event, 'firstname')">Prénom</ShortInput>
         <ShortInput ref="lastname" class="me__credentials--input" :value="$store.state.user.lastName" @updated="updateField($event, 'lastname')">Nom</ShortInput>
         <ShortInput class="me__credentials--input large" value="jane.doe@amicalecore.org" readonly>Adresse e-mail</ShortInput>
