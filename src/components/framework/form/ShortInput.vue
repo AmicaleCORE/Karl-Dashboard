@@ -51,6 +51,7 @@ export default defineComponent({
 
     &:disabled {
       cursor: not-allowed;
+      color: book.$txt-accent;
     }
 
     &:hover {
@@ -70,6 +71,7 @@ export default defineComponent({
     top: 50%;
     opacity: .3;
     left: $inset;
+    user-select: none;
     position: absolute;
     pointer-events: none;
     transform: translateY(-50%);
