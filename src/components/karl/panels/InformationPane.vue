@@ -2,7 +2,8 @@
   <section class="panel">
     <header class="panel__header">
       <h2 class="panel__header--title">{{ name }}</h2>
-      <p class="panel__header--info">{{ headerInfo }}</p>
+      <p class="panel__header--info" v-if="headerInfo">{{ headerInfo }}</p>
+      <button class="panel__header--action" v-if="headerAction" @click.prevent="$emit('committed')">{{ headerAction }}</button>
     </header>
 
     <div class="panel--content">
@@ -21,7 +22,8 @@ export default defineComponent({
       type: String,
       required: true
     },
-    headerInfo: String
+    headerInfo: String,
+    headerAction: String
   }
 })
 </script>
@@ -65,6 +67,21 @@ export default defineComponent({
       opacity: .5;
       font-size: .75em;
       font-weight: 300;
+    }
+
+    &--action {
+      color: book.$bg;
+      line-height: 100%;
+      padding: .75em 1.5em;
+      border-radius: .75em;
+      background-size: 100% 150%;
+      background-position: bottom;
+      background-image: book.$gradient;
+      transition: background-position 350ms ease-in-out;
+
+      &:hover {
+        background-position: top;
+      }
     }
   }
 }

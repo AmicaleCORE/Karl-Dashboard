@@ -1,16 +1,16 @@
 <template>
   <main class="me">
-    <InformationPane class="me__credentials" name="Mes informations">
+    <InformationPane class="me__credentials" name="Mes informations" :header-action="updates ? 'Sauvegarder' : undefined" @committed="updateDB">
       <div class="me__credentials--wrapper">
         <ShortInput class="me__credentials--input large" value="jane.doe" readonly>Login</ShortInput>
-        <ShortInput class="me__credentials--input" value="Jane">Prénom</ShortInput>
-        <ShortInput class="me__credentials--input" value="DOE">Nom</ShortInput>
+        <ShortInput ref="firstname" class="me__credentials--input" :value="$store.state.user.firstName" @updated="updateField($event, 'firstname')">Prénom</ShortInput>
+        <ShortInput ref="lastname" class="me__credentials--input" :value="$store.state.user.lastName" @updated="updateField($event, 'lastname')">Nom</ShortInput>
         <ShortInput class="me__credentials--input large" value="jane.doe@amicalecore.org" readonly>Adresse e-mail</ShortInput>
         <button class="me__credentials--password">Modifier mon mot de passe</button>
       </div>
     </InformationPane>
 
-    <InformationPane class="me__permissions" name="Mes permissions" :header-info="group">
+    <InformationPane class="me__permissions" name="Mes permissions" :header-info="$store.state.user.role">
       <div class="me__permissions--wrapper v-wrapper">
         <article class="me__permissions__group v-wrapper" v-if="permissions.group && permissions.group.length > 0">
           <h3 class="me__permissions--title">{{ group }}</h3>
@@ -28,7 +28,17 @@
     </InformationPane>
 
     <InformationPane class="me__logs" name="Logs">
+      <div class="me__logs--wrapper v-wrapper">
+        <!-- TODO: Content -->
+        TODO...
+      </div>
+    </InformationPane>
 
+    <InformationPane class="me__more" name="Informations complémentaires">
+      <div class="me__more--wrapper v-wrapper">
+        <!-- TODO: Content -->
+        TODO...
+      </div>
     </InformationPane>
   </main>
 </template>
@@ -42,7 +52,7 @@ export default defineComponent({
   name: 'ProfileView',
   components: { ShortInput, InformationPane },
   data: () => ({
-    group: 'Administrateur',
+    updates: false,
     permissions: {
       group: [
         'Créer un produit',
@@ -56,7 +66,20 @@ export default defineComponent({
         'Supprimer un utilisateur'
       ]
     }
-  })
+  }),
+  methods: {
+    updateField (e, sender) {
+      if (sender === 'firstname') this.updates = e.value !== this.$store.state.user.firstName
+      if (sender === 'lastname') this.updates = e.value !== this.$store.state.user.lastName
+    },
+    updateDB () {
+      this.$store.state.user.firstName = this.$refs.firstname.inputValue
+      this.$store.state.user.lastName = this.$refs.lastname.inputValue
+      this.updates = false
+      // TODO: Push data in DB
+      console.log('Update the database to fit with new credentials')
+    }
+  }
 })
 </script>
 
@@ -147,6 +170,10 @@ export default defineComponent({
   &__logs {
     grid-column-start: 2;
     grid-row: 1 / span 2;
+  }
+
+  &__more {
+    grid-column: span 2;
   }
 }
 </style>

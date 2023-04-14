@@ -6,6 +6,11 @@ export default createStore({
     cart: {},
     display: {
       products: localStorage.getItem('display-products')
+    },
+    user: {
+      firstName: 'Jane',
+      lastName: 'DOE',
+      role: 'Administrateur'
     }
   },
   getters: {
